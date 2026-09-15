@@ -76,7 +76,7 @@ export default function Downloads() {
       <section className="border-b-2 border-black">
         <div className="border-b-2 border-black px-6 md:px-12 py-5 md:py-6">
           <h2 className="font-black text-2xl md:text-3xl tracking-tighter uppercase">
-            01 / Logo Assets
+            01 // Logo Assets
           </h2>
         </div>
         <div className="px-6 md:px-12 py-6 md:py-8 border-b border-black">
@@ -88,7 +88,7 @@ export default function Downloads() {
         </div>
 
         <p className="md:hidden px-6 py-2 border-b border-black font-bold text-[9px] tracking-widest uppercase text-black/60">
-          Scroll right for PNG / PDF →
+          Scroll right for PNG // PDF →
         </p>
         <div className="overflow-x-auto">
           <div className="min-w-[640px]">
@@ -123,7 +123,7 @@ export default function Downloads() {
       <section className="border-b-2 border-black">
         <div className="border-b-2 border-black px-6 md:px-12 py-5 md:py-6">
           <h2 className="font-black text-2xl md:text-3xl tracking-tighter uppercase">
-            02 / Typography
+            02 // Typography
           </h2>
         </div>
 

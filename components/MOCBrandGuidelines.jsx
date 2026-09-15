@@ -189,7 +189,7 @@ function SectionLabel({ index, title }) {
   return (
     <div className="border-b-2 border-black px-6 md:px-12 py-5 md:py-6 flex items-baseline justify-between">
       <h2 className="font-black text-2xl md:text-3xl tracking-tighter uppercase">
-        {index} / {title}
+        {index} // {title}
       </h2>
       <span className="font-bold text-[10px] md:text-xs tracking-widest">
         MOC-BSM-001
@@ -281,7 +281,7 @@ function TypeRow({ weightClass, label, code }) {
           {label}
         </p>
         <p className="font-bold text-[10px] md:text-xs tracking-widest">
-          PROXIMA NOVA / {code}
+          PROXIMA NOVA // {code}
         </p>
       </div>
       <p className={`${weightClass} text-lg md:text-2xl tracking-tight break-all`}>
@@ -382,7 +382,7 @@ export default function MOCBrandGuidelines() {
       <header className="border-b-2 border-black">
         <div className="px-6 md:px-12 py-12 md:py-20">
           <p className="font-bold text-[10px] md:text-xs tracking-widest mb-8">
-            DOC NO. MOC-BSM-001 / REV I / ISSUED 2026
+            DOC NO. MOC-BSM-001 // REV I // ISSUED 2026
           </p>
           <h1 className="font-black text-6xl md:text-9xl tracking-tighter leading-none">
             MOC Products
@@ -416,19 +416,19 @@ export default function MOCBrandGuidelines() {
 
         <SubLabel text="PRIMARY MARKS // LINEAR &amp; BOX LOCKUP" />
         <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b border-black">
-          <LogoPanel id="1A" label="Primary" note="LINEAR MARK / BLACK INK / WHITE FIELD" bg="bg-white" fg="text-black" />
-          <LogoPanel id="1B" label="Knockout" note="LINEAR MARK / WHITE INK / BLACK FIELD" bg="bg-black" fg="text-white" />
+          <LogoPanel id="1A" label="Primary" note="LINEAR MARK // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" />
+          <LogoPanel id="1B" label="Knockout" note="LINEAR MARK // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b-2 border-black">
-          <LogoPanel id="1C" label="Box Logo // Primary" note="BOX LOCKUP / BLACK INK / WHITE FIELD" bg="bg-white" fg="text-black" part="box" />
-          <LogoPanel id="1D" label="Box Logo // Knockout" note="BOX LOCKUP / WHITE INK / BLACK FIELD" bg="bg-black" fg="text-white" part="box" />
+          <LogoPanel id="1C" label="Box Logo // Primary" note="BOX LOCKUP // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" part="box" />
+          <LogoPanel id="1D" label="Box Logo // Knockout" note="BOX LOCKUP // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" part="box" />
         </div>
 
         <SubLabel text="1E // RESTRICTED, REQUIRES APPROVAL" />
         <RestrictedPanel
           id="1E"
           label="Curve Device // Isolated"
-          note="Approved only for icon, favicon, or background / textural use // never as a standalone brand mark, and never without approval. The wordmark is not an approved standalone asset and is not shown isolated in this guide."
+          note="Approved only for icon, favicon, or background // textural use // never as a standalone brand mark, and never without approval. The wordmark is not an approved standalone asset and is not shown isolated in this guide."
         />
       </section>
 
@@ -476,12 +476,12 @@ export default function MOCBrandGuidelines() {
         <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black">
           <MinSizeCard
             label="LINEAR MARK"
-            size="24PX / 0.5IN"
+            size="24PX // 0.5IN"
             note="Minimum width for digital and print reproduction. Below this size the curve device loses definition."
           />
           <MinSizeCard
             label="BOX LOGO"
-            size="32PX / 0.75IN"
+            size="32PX // 0.75IN"
             note="Minimum width for digital and print reproduction. The box lockup carries more detail than the linear mark and needs more room to stay legible."
           />
         </div>
@@ -493,9 +493,9 @@ export default function MOCBrandGuidelines() {
       <section className="border-b-2 border-black">
         <SectionLabel index="03" title="Typography System" />
         <div>
-          <TypeRow weightClass="font-black" label="Black / 900" code="WEIGHT 900" />
-          <TypeRow weightClass="font-bold" label="Bold / 700" code="WEIGHT 700" />
-          <TypeRow weightClass="font-normal" label="Regular / 400" code="WEIGHT 400" />
+          <TypeRow weightClass="font-black" label="Black // 900" code="WEIGHT 900" />
+          <TypeRow weightClass="font-bold" label="Bold // 700" code="WEIGHT 700" />
+          <TypeRow weightClass="font-normal" label="Regular // 400" code="WEIGHT 400" />
         </div>
         <SubLabel text="RESTRICTIONS" />
         <div className="px-6 md:px-12 py-8 md:py-10 border-b border-black">
@@ -611,7 +611,7 @@ export default function MOCBrandGuidelines() {
         <div>
           <RuleRow num="+" rule="Do not recolor the mark or apply multiple colors. Reproduce in solid black or solid white only." />
           <RuleRow num="+" rule="Do not place the mark on any background color other than solid black or solid white + no brand colors, tints, or third-party colors as a backing field." />
-          <RuleRow num="+" rule="Do not place the mark over photography, imagery, or textured / patterned surfaces + the field behind the mark must stay solid." />
+          <RuleRow num="+" rule="Do not place the mark over photography, imagery, or textured // patterned surfaces + the field behind the mark must stay solid." />
           <RuleRow num="+" rule="Do not apply stylized filters + no drop shadows, glows, strokes, outlines, or other effects." />
           <RuleRow num="+" rule="Do not add copy to the logo itself + no taglines, descriptors, or characters appended to the mark." />
           <RuleRow num="+" rule="Do not place text or visual elements within the clearspace boundary, for either the mark or the box logo." />
@@ -648,7 +648,7 @@ export default function MOCBrandGuidelines() {
         <p className="font-normal text-[10px] tracking-widest">
           MOC PRODUCTS // BRAND STANDARDS MANUAL // FOR INTERNAL &amp; EXTERNAL DISTRIBUTION
         </p>
-        <p className="font-bold text-[10px] tracking-widest">PAGE 01 / 01</p>
+        <p className="font-bold text-[10px] tracking-widest">PAGE 01 // 01</p>
       </footer>
     </div>
   );
