@@ -37,7 +37,7 @@ const FORMATS = [
 
 function DownloadCell({ base, ext, label }) {
   return (
-    
+    <a
       href={`/assets/logo/${base}.${ext}`}
       download
       className="border-b border-black px-4 py-3 flex items-center justify-center font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
@@ -144,7 +144,7 @@ export default function Downloads() {
               Free, open license. The approved substitute for partners and vendors without a
               Proxima Nova license. Linked at the source rather than hosted here.
             </p>
-            
+            <a
               href="https://fonts.google.com/specimen/Montserrat"
               target="_blank"
               rel="noopener noreferrer"
