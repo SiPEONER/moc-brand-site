@@ -40,7 +40,7 @@ function DownloadCell({ base, ext, label }) {
     <a
       href={`/assets/logo/${base}.${ext}`}
       download
-      className="border border-black px-4 py-3 flex items-center justify-center font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
+      className="border-b border-black px-4 py-3 flex items-center justify-center font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
     >
       {label}
     </a>
