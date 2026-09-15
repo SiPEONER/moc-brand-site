@@ -18,13 +18,13 @@ const LOGO_ASSETS = [
   {
     id: "1C",
     label: "Box Logo // Primary",
-    note: "Black field, white cutout wordmark — the complete square lockup, per Section 01.",
+    note: "Black field, white cutout wordmark // the complete square lockup, per Section 01.",
     base: "moc-box-primary",
   },
   {
     id: "1D",
     label: "Box Logo // Knockout",
-    note: "White field, black cutout wordmark — the complete square lockup, per Section 01.",
+    note: "White field, black cutout wordmark // the complete square lockup, per Section 01.",
     base: "moc-box-knockout",
   },
 ];
@@ -37,7 +37,7 @@ const FORMATS = [
 
 function DownloadCell({ base, ext, label }) {
   return (
-    <a
+    
       href={`/assets/logo/${base}.${ext}`}
       download
       className="border-b border-black px-4 py-3 flex items-center justify-center font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
@@ -82,7 +82,7 @@ export default function Downloads() {
         <div className="px-6 md:px-12 py-6 md:py-8 border-b border-black">
           <p className="font-normal text-sm tracking-wide max-w-2xl">
             The four approved lockups from Section 01 of the Brand Guidelines. The restricted
-            curve device (1E) requires prior approval and is not available here — request it
+            curve device (1E) requires prior approval and is not available here // request it
             through the design team.
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function Downloads() {
             <p className="font-bold text-[10px] tracking-widest mb-3">PRIMARY // INTERNAL USE ONLY</p>
             <p className="font-black text-2xl tracking-tighter mb-3">Proxima Nova</p>
             <p className="font-normal text-sm tracking-wide max-w-sm">
-              Licensed to MOC creatives only. Not distributed here — use the copy already
+              Licensed to MOC creatives only. Not distributed here // use the copy already
               installed on your licensed machine. See Section 03 of the Brand Guidelines for
               weight and usage rules.
             </p>
@@ -144,7 +144,7 @@ export default function Downloads() {
               Free, open license. The approved substitute for partners and vendors without a
               Proxima Nova license. Linked at the source rather than hosted here.
             </p>
-            <a
+            
               href="https://fonts.google.com/specimen/Montserrat"
               target="_blank"
               rel="noopener noreferrer"

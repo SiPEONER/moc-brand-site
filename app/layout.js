@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "MOC Products — Brand Guidelines",
+  title: "MOC Products // Brand Guidelines",
   description: "MOC Products Brand Identity & Logo Usage Guide (MOC-BSM-001).",
   robots: {
     index: false,
