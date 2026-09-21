@@ -381,9 +381,25 @@ export default function MOCBrandGuidelines() {
       --------------------------------------------------------- */}
       <header className="border-b-2 border-black">
         <div className="px-6 md:px-12 py-12 md:py-20">
-          <p className="font-bold text-[10px] md:text-xs tracking-widest mb-8">
-            DOC NO. MOC-BSM-001 // REV I // ISSUED 2026
-          </p>
+          <div className="flex flex-col-reverse md:flex-row md:items-start md:justify-between gap-6 mb-8">
+            <p className="font-bold text-[10px] md:text-xs tracking-widest">
+              DOC NO. MOC-BSM-001 // REV I // ISSUED 2026
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+              <a
+                href="/ai-policy"
+                className="bg-white text-black no-underline font-bold text-[11px] tracking-widest uppercase px-4 py-3 border-2 border-black hover:bg-black hover:text-white transition-colors text-center"
+              >
+                AI Content Policy →
+              </a>
+              <a
+                href="/downloads"
+                className="bg-black text-white no-underline font-bold text-[11px] tracking-widest uppercase px-4 py-3 border-2 border-black hover:bg-white hover:text-black transition-colors text-center"
+              >
+                Download Assets →
+              </a>
+            </div>
+          </div>
           <h1 className="font-black text-6xl md:text-9xl tracking-tighter leading-none">
             MOC Products
           </h1>
