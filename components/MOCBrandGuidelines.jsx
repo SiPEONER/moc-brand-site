@@ -434,11 +434,13 @@ export default function MOCBrandGuidelines() {
         <SectionLabel index="01" title="Logo System" />
 
         <SubLabel text="PRIMARY MARKS // LINEAR &amp; BOX LOCKUP" />
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black">
+        {/* All four panels share ONE grid (not two stacked grids) so 1A/1B and 1C/1D
+            resolve identical column tracks — two separate grids can round their
+            "1fr 1fr" columns by a pixel differently, which is what caused the
+            vertical divider to jog out of alignment at the row boundary. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b-2 border-white">
           <LogoPanel id="1A" label="Primary" note="LINEAR MARK // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" divider />
           <LogoPanel id="1B" label="Knockout" note="LINEAR MARK // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" divider />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b-2 border-white">
           <LogoPanel id="1C" label="Box Logo // Primary" note="BOX LOCKUP // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" part="box" />
           <LogoPanel id="1D" label="Box Logo // Knockout" note="BOX LOCKUP // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" part="box" />
         </div>
