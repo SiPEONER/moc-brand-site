@@ -244,28 +244,30 @@ function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) 
   // own background (white line on black, black line on white) rather than a single
   // fixed color, since the two columns need opposite treatment.
   //
-  // The parent grid's divide-black utility targets any non-first child with a
-  // compound selector (> :not([hidden]) ~ :not([hidden])), which out-specifies a
-  // plain border-white class and silently forces black back onto a black panel's
-  // border (id 1B is the second child in its row, so it's the one this hits). The
-  // "!" forces our color to actually win there; harmless on the black-on-white
-  // branch, which was never in conflict. Verified in the compiled production CSS
-  // that our rule is present and correctly !important, with divide-black's
-  // competing rule confirmed NOT important — so it should already win outright.
-  // Bumped to border-b-2 anyway: a bare 1px hairline can round away to nothing
-  // at some browser zoom/DPI combinations, and 2px is cheap insurance against
-  // that regardless of the specificity fix above.
+  // The parent grid mixes two divide-* utilities, and each one wins a fight
+  // against a different plain property here — both via the same compound
+  // selector (> :not([hidden]) ~ :not([hidden])), which out-specifies a
+  // single plain utility class:
+  //   - divide-black sets border-COLOR on 1B (the second child in its row)
+  //     back to black. Fixed with !border-b-white.
+  //   - divide-y sets border-WIDTH. It's meant to put the mobile stacked
+  //     divider on border-top-width and explicitly zeroes border-bottom-width
+  //     via calc(1px * var(--tw-divide-y-reverse)) with the reverse var at 0.
+  //     That zero was winning against our plain border-b-2, so the color was
+  //     always correct and !important but had nothing to show, at 0px wide.
+  //     Confirmed in Chrome DevTools' Computed panel, which traced
+  //     border-bottom-width: 0px directly to .divide-y's compound selector.
+  //     Fixed the same way, with !border-b-2 on the width utility too.
   //
-  // Using the BOTTOM-SPECIFIC color utility (border-b-white), not the general
-  // border-white shorthand: the general one sets border-color on all four sides,
-  // which was quietly also overriding divide-x's LEFT border color on this same
-  // panel (1B's vertical divider against 1A) — harmless there since it sits on a
-  // white/black boundary anyway, but not correct, and worth eliminating as a
-  // variable while this still isn't rendering.
+  // Using the BOTTOM-SPECIFIC utilities (border-b-*), not the general
+  // border-white/border-black/border-2 shorthand: the general ones set all
+  // four sides, which was quietly also touching divide-x's LEFT border on
+  // this same panel (1B's vertical divider against 1A) — harmless there by
+  // coincidence, but imprecise, and worth eliminating as a variable.
   const dividerClass = divider
     ? bg === "bg-black"
-      ? "md:border-b-2 md:!border-b-white"
-      : "md:border-b-2 md:!border-b-black"
+      ? "md:!border-b-2 md:!border-b-white"
+      : "md:!border-b-2 md:!border-b-black"
     : "";
   return (
     <div
