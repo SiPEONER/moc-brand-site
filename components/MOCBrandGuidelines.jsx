@@ -629,7 +629,11 @@ export default function MOCBrandGuidelines() {
           <p className="font-normal text-sm tracking-wide max-w-2xl">
             AI tools may assist internal workflows, but they do not touch the identity system
             itself. The rules below are the visual-identity requirements only + for the full
-            review process and governance, see the companion MOC AI Content Policy (MOC-AIP-001).
+            review process and governance, see the companion{" "}
+            <a href="/ai-policy" className="underline hover:no-underline">
+              MOC AI Content Policy (MOC-AIP-001)
+            </a>
+            .
           </p>
         </div>
         <SubLabel text="VISUAL-IDENTITY REQUIREMENTS" />
