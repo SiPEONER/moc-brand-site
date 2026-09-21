@@ -200,7 +200,7 @@ function SectionLabel({ index, title }) {
 
 function SubLabel({ text }) {
   return (
-    <div className="border-b border-black px-6 md:px-12 py-3 bg-black">
+    <div className="border-b border-white px-6 md:px-12 py-3 bg-black">
       <p className="font-bold text-white text-[10px] tracking-widest">{text}</p>
     </div>
   );
