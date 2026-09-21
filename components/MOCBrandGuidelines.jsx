@@ -198,9 +198,12 @@ function SectionLabel({ index, title }) {
   );
 }
 
-function SubLabel({ text }) {
+function SubLabel({ text, noDivider = false }) {
+  // The bottom hairline is white so this bar reads as a distinct label rather than
+  // fusing into a black panel below it. Skip it (noDivider) when what follows already
+  // draws its own top border — e.g. CautionStripe — so the two don't double up.
   return (
-    <div className="border-b border-white px-6 md:px-12 py-3 bg-black">
+    <div className={`${noDivider ? "" : "border-b border-white"} px-6 md:px-12 py-3 bg-black`}>
       <p className="font-bold text-white text-[10px] tracking-widest">{text}</p>
     </div>
   );
@@ -433,7 +436,7 @@ export default function MOCBrandGuidelines() {
           <LogoPanel id="1D" label="Box Logo // Knockout" note="BOX LOCKUP // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" part="box" />
         </div>
 
-        <SubLabel text="1E // RESTRICTED, REQUIRES APPROVAL" />
+        <SubLabel text="1E // RESTRICTED, REQUIRES APPROVAL" noDivider />
         <RestrictedPanel
           id="1E"
           label="Curve Device // Isolated"
