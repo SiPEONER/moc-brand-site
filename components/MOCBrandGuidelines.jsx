@@ -235,10 +235,19 @@ function CautionStripe() {
   );
 }
 
-function LogoPanel({ id, label, note, bg, fg, part = "full" }) {
+function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) {
+  // "divider" adds a bottom seam only at md+, where this panel sits directly above
+  // its row-2 counterpart in the same column. Colored to contrast with this panel's
+  // own background (white line on black, black line on white) rather than a single
+  // fixed color, since the two columns need opposite treatment.
+  const dividerClass = divider
+    ? bg === "bg-black"
+      ? "md:border-b md:border-white"
+      : "md:border-b md:border-black"
+    : "";
   return (
     <div
-      className={`${bg} ${fg} p-10 md:p-16 flex flex-col items-center justify-center min-h-[280px]`}
+      className={`${bg} ${fg} ${dividerClass} p-10 md:p-16 flex flex-col items-center justify-center min-h-[280px]`}
     >
       <div className="w-full flex justify-between font-bold text-[10px] md:text-xs tracking-widest mb-10">
         <span>{id}</span>
@@ -415,11 +424,11 @@ export default function MOCBrandGuidelines() {
         <SectionLabel index="01" title="Logo System" />
 
         <SubLabel text="PRIMARY MARKS // LINEAR &amp; BOX LOCKUP" />
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b border-black">
-          <LogoPanel id="1A" label="Primary" note="LINEAR MARK // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" />
-          <LogoPanel id="1B" label="Knockout" note="LINEAR MARK // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" />
+        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black">
+          <LogoPanel id="1A" label="Primary" note="LINEAR MARK // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" divider />
+          <LogoPanel id="1B" label="Knockout" note="LINEAR MARK // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" divider />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b-2 border-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b-2 border-white">
           <LogoPanel id="1C" label="Box Logo // Primary" note="BOX LOCKUP // BLACK INK // WHITE FIELD" bg="bg-white" fg="text-black" part="box" />
           <LogoPanel id="1D" label="Box Logo // Knockout" note="BOX LOCKUP // WHITE INK // BLACK FIELD" bg="bg-black" fg="text-white" part="box" />
         </div>
