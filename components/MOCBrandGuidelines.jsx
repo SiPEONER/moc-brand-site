@@ -243,10 +243,17 @@ function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) 
   // its row-2 counterpart in the same column. Colored to contrast with this panel's
   // own background (white line on black, black line on white) rather than a single
   // fixed color, since the two columns need opposite treatment.
+  //
+  // The parent grid's divide-black utility targets any non-first child with a
+  // compound selector (> :not([hidden]) ~ :not([hidden])), which out-specifies a
+  // plain border-white class and silently forces black back onto a black panel's
+  // border (id 1B is the second child in its row, so it's the one this hits). The
+  // "!" forces our color to actually win there; harmless on the black-on-white
+  // branch, which was never in conflict.
   const dividerClass = divider
     ? bg === "bg-black"
-      ? "md:border-b md:border-white"
-      : "md:border-b md:border-black"
+      ? "md:border-b md:!border-white"
+      : "md:border-b md:!border-black"
     : "";
   return (
     <div
