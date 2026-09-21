@@ -202,8 +202,11 @@ function SubLabel({ text, noDivider = false }) {
   // The bottom hairline is white so this bar reads as a distinct label rather than
   // fusing into a black panel below it. Skip it (noDivider) when what follows already
   // draws its own top border — e.g. CautionStripe — so the two don't double up.
+  // border-b-2 to match the weight of the divider on the panel row directly below
+  // (LogoPanel's own border-b-2) — a bare 1px line here read visibly thinner than
+  // that 2px seam right underneath it, on the 1A-1D row.
   return (
-    <div className={`${noDivider ? "" : "border-b border-white"} px-6 md:px-12 py-3 bg-black`}>
+    <div className={`${noDivider ? "" : "border-b-2 border-white"} px-6 md:px-12 py-3 bg-black`}>
       <p className="font-bold text-white text-[10px] tracking-widest">{text}</p>
     </div>
   );
