@@ -255,10 +255,17 @@ function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) 
   // Bumped to border-b-2 anyway: a bare 1px hairline can round away to nothing
   // at some browser zoom/DPI combinations, and 2px is cheap insurance against
   // that regardless of the specificity fix above.
+  //
+  // Using the BOTTOM-SPECIFIC color utility (border-b-white), not the general
+  // border-white shorthand: the general one sets border-color on all four sides,
+  // which was quietly also overriding divide-x's LEFT border color on this same
+  // panel (1B's vertical divider against 1A) — harmless there since it sits on a
+  // white/black boundary anyway, but not correct, and worth eliminating as a
+  // variable while this still isn't rendering.
   const dividerClass = divider
     ? bg === "bg-black"
-      ? "md:border-b-2 md:!border-white"
-      : "md:border-b-2 md:!border-black"
+      ? "md:border-b-2 md:!border-b-white"
+      : "md:border-b-2 md:!border-b-black"
     : "";
   return (
     <div
