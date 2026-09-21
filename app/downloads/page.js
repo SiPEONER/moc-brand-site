@@ -40,9 +40,10 @@ function DownloadCell({ base, ext, label }) {
     <a
       href={`/assets/logo/${base}.${ext}`}
       download
-      className="border-b border-black px-4 py-3 flex items-center justify-center font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
+      className="border-b border-black px-4 py-3 flex items-center justify-center gap-1.5 font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
     >
       {label}
+      <span aria-hidden="true" className="text-[13px] leading-none">↓</span>
     </a>
   );
 }
@@ -87,33 +88,39 @@ export default function Downloads() {
           </p>
         </div>
 
-        <p className="md:hidden px-6 py-2 border-b border-black font-bold text-[9px] tracking-widest uppercase text-black/60">
+        <p className="md:hidden px-6 py-2.5 border-b border-black bg-black text-white font-bold text-[11px] tracking-widest uppercase">
           Scroll right for PNG // PDF →
         </p>
-        <div className="overflow-x-auto">
-          <div className="min-w-[640px]">
-            {LOGO_ASSETS.map((asset) => (
-              <div key={asset.id} className="border-b border-black last:border-b-0 grid grid-cols-[1fr_repeat(3,140px)]">
-                <div className="px-6 md:px-12 py-6 border-r border-black flex flex-col justify-center">
-                  <p className="font-bold text-[10px] tracking-widest">{asset.id}</p>
-                  <p className="font-black text-base md:text-lg tracking-tight uppercase mt-1">
-                    {asset.label}
-                  </p>
-                  <p className="font-normal text-[11px] tracking-wide mt-2 max-w-md text-black/70">
-                    {asset.note}
-                  </p>
-                </div>
-                {FORMATS.map((fmt) => (
-                  <div key={fmt.ext} className="border-r border-black last:border-r-0 flex flex-col">
-                    <DownloadCell base={asset.base} ext={fmt.ext} label={fmt.label} />
-                    <p className="text-center font-normal text-[9px] tracking-widest uppercase py-2 text-black/60">
-                      {fmt.note}
+        <div className="relative">
+          <div className="overflow-x-auto">
+            <div className="min-w-[640px]">
+              {LOGO_ASSETS.map((asset) => (
+                <div key={asset.id} className="border-b border-black last:border-b-0 grid grid-cols-[1fr_repeat(3,140px)]">
+                  <div className="px-6 md:px-12 py-6 border-r border-black flex flex-col justify-center">
+                    <p className="font-bold text-[10px] tracking-widest">{asset.id}</p>
+                    <p className="font-black text-base md:text-lg tracking-tight uppercase mt-1">
+                      {asset.label}
+                    </p>
+                    <p className="font-normal text-[11px] tracking-wide mt-2 max-w-md text-black/70">
+                      {asset.note}
                     </p>
                   </div>
-                ))}
-              </div>
-            ))}
+                  {FORMATS.map((fmt) => (
+                    <div key={fmt.ext} className="border-r border-black last:border-r-0 flex flex-col">
+                      <DownloadCell base={asset.base} ext={fmt.ext} label={fmt.label} />
+                      <p className="text-center font-normal text-[9px] tracking-widest uppercase py-2 text-black/60">
+                        {fmt.note}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
+          <div
+            aria-hidden="true"
+            className="md:hidden pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-white to-transparent"
+          />
         </div>
       </section>
 
