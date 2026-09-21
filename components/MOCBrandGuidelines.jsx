@@ -249,11 +249,16 @@ function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) 
   // plain border-white class and silently forces black back onto a black panel's
   // border (id 1B is the second child in its row, so it's the one this hits). The
   // "!" forces our color to actually win there; harmless on the black-on-white
-  // branch, which was never in conflict.
+  // branch, which was never in conflict. Verified in the compiled production CSS
+  // that our rule is present and correctly !important, with divide-black's
+  // competing rule confirmed NOT important — so it should already win outright.
+  // Bumped to border-b-2 anyway: a bare 1px hairline can round away to nothing
+  // at some browser zoom/DPI combinations, and 2px is cheap insurance against
+  // that regardless of the specificity fix above.
   const dividerClass = divider
     ? bg === "bg-black"
-      ? "md:border-b md:!border-white"
-      : "md:border-b md:!border-black"
+      ? "md:border-b-2 md:!border-white"
+      : "md:border-b-2 md:!border-black"
     : "";
   return (
     <div
