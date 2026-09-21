@@ -159,17 +159,6 @@ function ChecklistItem({ num, title, note }) {
   );
 }
 
-function RevisionRow({ rev, date, note }) {
-  return (
-    <div className="border-b border-black last:border-b-0 px-6 md:px-12 py-6">
-      <p className="font-bold text-[10px] md:text-xs tracking-widest">
-        REV {rev} // {date}
-      </p>
-      <p className="font-normal text-sm tracking-wide mt-2 max-w-2xl">{note}</p>
-    </div>
-  );
-}
-
 /* ==================================================================
    ROOT COMPONENT
    ================================================================== */
@@ -197,13 +186,12 @@ export default function MOCAIContentPolicy() {
             </p>
           </div>
         </div>
-        <div className="border-t-2 border-black grid grid-cols-2 md:grid-cols-6 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black">
+        <div className="border-t-2 border-black grid grid-cols-2 md:grid-cols-5 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black">
           <IndexItem index="01" label="Purpose" />
           <IndexItem index="02" label="Approved Use" />
           <IndexItem index="03" label="Prohibited Use" />
           <IndexItem index="04" label="Fast-Track" />
           <IndexItem index="05" label="Checklist" />
-          <IndexItem index="06" label="Revisions" />
         </div>
       </header>
 
@@ -343,7 +331,7 @@ export default function MOCAIContentPolicy() {
       {/* ---------------------------------------------------------
           05 — PRE-PUBLISH CHECKLIST
       --------------------------------------------------------- */}
-      <section className="border-b-2 border-black">
+      <section>
         <SectionLabel index="05" title="Pre-Publish Checklist" />
         <div className="px-6 md:px-12 py-6 border-b border-black">
           <p className="font-normal text-sm tracking-wide max-w-2xl">
@@ -375,31 +363,6 @@ export default function MOCAIContentPolicy() {
             num="5"
             title="Audience Recognition"
             note="Determine the final destination. Internal-only content is clear to publish. Client-facing or public content that relies heavily on AI generation routes through the 72-hour Fast-Track review for final sign-off."
-          />
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------------
-          06 — REVISION HISTORY
-      --------------------------------------------------------- */}
-      <section>
-        <SectionLabel index="06" title="Revision History" />
-        <div className="px-6 md:px-12 py-6 border-b border-black">
-          <p className="font-normal text-sm tracking-wide max-w-2xl">
-            Revisions are now numbered sequentially, replacing the earlier lettered system. Each
-            entry below reflects a shipped change to this document.
-          </p>
-        </div>
-        <div>
-          <RevisionRow
-            rev="2"
-            date="UNDATED"
-            note="Merged in the Creative Director's refined policy wording + corrected the Fast-Track submission path from an earlier SharePoint reference to the Formstack intake form + narrowed approved AI-assisted export formats to SVG, PNG, and PDF (dropped EPS)."
-          />
-          <RevisionRow
-            rev="1"
-            date="UNDATED"
-            note="Initial publish + governance structure established across Purpose, Approved AI Workflows, the AI Slop Filter, Fast-Track Review, and the Pre-Publish Checklist."
           />
         </div>
       </section>

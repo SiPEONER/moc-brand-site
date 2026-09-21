@@ -356,17 +356,6 @@ function RuleRow({ num, rule }) {
   );
 }
 
-function RevisionRow({ rev, date, note }) {
-  return (
-    <div className="border-b border-black last:border-b-0 px-6 md:px-12 py-6">
-      <p className="font-bold text-[10px] md:text-xs tracking-widest">
-        REV {rev} // {date}
-      </p>
-      <p className="font-normal text-sm tracking-wide mt-2 max-w-2xl">{note}</p>
-    </div>
-  );
-}
-
 function MinSizeCard({ label, size, note }) {
   return (
     <div className="p-10 md:p-16">
@@ -407,16 +396,15 @@ export default function MOCBrandGuidelines() {
           </div>
         </div>
         {/* 3 columns from md up avoids label wrapping ("Logo System",
-            "AI Content") at tablet widths; the single-row 7-across layout
+            "AI Content") at tablet widths; the single-row 6-across layout
             only kicks in at lg, where there's room for it. */}
-        <div className="border-t-2 border-black grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 divide-x-0 md:divide-x divide-y lg:divide-y-0 divide-black">
+        <div className="border-t-2 border-black grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x-0 md:divide-x divide-y lg:divide-y-0 divide-black">
           <IndexItem index="01" label="Logo System" />
           <IndexItem index="02" label="Clearspace" />
           <IndexItem index="03" label="Typography" />
           <IndexItem index="04" label="Color" />
           <IndexItem index="05" label="Usage" />
           <IndexItem index="06" label="AI Content" />
-          <IndexItem index="07" label="Revisions" />
         </div>
       </header>
 
@@ -635,7 +623,7 @@ export default function MOCBrandGuidelines() {
       {/* ---------------------------------------------------------
           06 — AI-GENERATED CONTENT
       --------------------------------------------------------- */}
-      <section className="border-b-2 border-black">
+      <section>
         <SectionLabel index="06" title="AI-Generated Content" />
         <div className="px-6 md:px-12 py-8 md:py-10 border-b-2 border-black">
           <p className="font-normal text-sm tracking-wide max-w-2xl">
@@ -654,31 +642,6 @@ export default function MOCBrandGuidelines() {
           <RuleRow num="+" rule="AI-generated imagery, backgrounds, or textures used alongside the mark must stay within the binary palette defined in Section 04 + no exceptions for AI output." />
           <RuleRow num="+" rule="Never bake AI-generated or hallucinated text into a final asset. Set all type manually, per Section 03." />
           <RuleRow num="+" rule="AI-assisted layouts and applications follow the same clearspace, minimum-size, and incorrect-usage rules as any other application + see Sections 02 and 05." />
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------------
-          07 — REVISION HISTORY
-      --------------------------------------------------------- */}
-      <section>
-        <SectionLabel index="07" title="Revision History" />
-        <div className="px-6 md:px-12 py-6 border-b border-black">
-          <p className="font-normal text-sm tracking-wide max-w-2xl">
-            Revisions are now numbered sequentially, replacing the earlier lettered system. Each
-            entry below reflects a shipped change to this document.
-          </p>
-        </div>
-        <div>
-          <RevisionRow
-            rev="10"
-            date="2026-09-21"
-            note="Consolidated homepage navigation to the persistent floating link set + removed the duplicate AI Content Policy and Download Assets buttons from the page header."
-          />
-          <RevisionRow
-            rev="1-9"
-            date="UNDATED"
-            note="Earlier revisions built out the visual identity system + logo system, clearspace, typography, color, usage, and AI-generated content sections. Not logged individually prior to this changelog."
-          />
         </div>
       </section>
 
