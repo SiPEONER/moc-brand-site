@@ -313,7 +313,19 @@ export default function MOCAIContentPolicy() {
           <ProcessStep
             num="01"
             title="Submit the Draft"
-            note={'Drop the file into the "AI-Assisted Design Approval" Formstack form. [LINK PENDING // add before this policy is distributed]'}
+            note={
+              <>
+                Drop the file into the "AI-Assisted Design Approval" Formstack form:{" "}
+                <a
+                  href="https://mocproductscom.formstack.com/forms/ai_design_approvals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline decoration-1 underline-offset-2 hover:no-underline"
+                >
+                  Submit here →
+                </a>
+              </>
+            }
           />
           <ProcessStep
             num="02"
