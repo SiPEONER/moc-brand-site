@@ -418,7 +418,7 @@ export default function MOCBrandGuidelines() {
       <header className="border-b-2 border-black">
         <div className="px-6 md:px-12 py-12 md:py-20">
           <p className="font-bold text-[10px] md:text-xs tracking-widest mb-8">
-            DOC NO. MOC-BSM-001 // REV 10 // ISSUED 2026
+            DOC NO. MOC-BSM-001 // REV 1.1 // ISSUED 2026
           </p>
           <h1 className="font-black text-6xl md:text-9xl tracking-tighter leading-none">
             MOC Products
