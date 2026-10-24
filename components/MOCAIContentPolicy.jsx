@@ -1,12 +1,13 @@
 import React from "react";
+import Arrow from "./Arrow";
 
 /* ==================================================================
-   MOC PRODUCTS — AI CONTENT POLICY
+   MOC PRODUCTS: AI CONTENT POLICY
    Single-file, production-ready React + Tailwind component.
 
    Sibling document to MOCBrandGuidelines.jsx (MOC-BSM-001). Same
    binary black/white, grid-driven, schematic visual system, so the
-   two read as one family of documents — but this one is a process /
+   two read as one family of documents, but this one is a process /
    governance policy, not a visual specification, and is versioned,
    updated, and distributed separately from the brand guide for that
    reason (see the two docs' own cross-references to each other).
@@ -16,24 +17,24 @@ import React from "react";
    fast-track review process, and the pre-publish checklist. The
    VISUAL-IDENTITY-specific AI rules (never let AI regenerate the
    logo, never bake AI text into a final asset, stay inside the
-   binary palette) live in the brand guide itself, Section 06 —
+   binary palette) live in the brand guide itself, Section 06:
    this document points back to them rather than repeating them.
 
-   SYSTEM CONSTRAINTS (shared with MOCBrandGuidelines.jsx — do not
+   SYSTEM CONSTRAINTS (shared with MOCBrandGuidelines.jsx, do not
    violate when editing):
    - Binary color only: #000000 / #FFFFFF. No grays, gradients,
      rounded corners, drop shadows, or opacity modifiers.
    - Font stack: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif.
    - Hierarchy: font-black (900) headers / font-bold labels /
      font-normal micro-copy. tracking-tighter on major headers.
-   - Structure runs on solid black borders — 2px for major section
+   - Structure runs on solid black borders: 2px for major section
      divisions, 1px hairlines for internal grid lines.
    ================================================================== */
 
 const FONT_STACK = "'Proxima Nova', 'Helvetica Neue', Arial, sans-serif";
 
 /* ------------------------------------------------------------------
-   ICON PRIMITIVES (shared visual language with the brand guide —
+   ICON PRIMITIVES (shared visual language with the brand guide:
    Check = approved / no bottleneck, X = prohibited)
    ------------------------------------------------------------------ */
 
@@ -196,7 +197,7 @@ export default function MOCAIContentPolicy() {
       </header>
 
       {/* ---------------------------------------------------------
-          01 — PURPOSE
+          01: PURPOSE
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="01" title="Purpose" />
@@ -223,7 +224,7 @@ export default function MOCAIContentPolicy() {
       </section>
 
       {/* ---------------------------------------------------------
-          02 — APPROVED AI WORKFLOWS
+          02: APPROVED AI WORKFLOWS
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="02" title="Approved AI Workflows" />
@@ -260,7 +261,7 @@ export default function MOCAIContentPolicy() {
       </section>
 
       {/* ---------------------------------------------------------
-          03 — THE AI SLOP FILTER
+          03: THE AI SLOP FILTER
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="03" title="The AI Slop Filter" />
@@ -298,7 +299,7 @@ export default function MOCAIContentPolicy() {
       </section>
 
       {/* ---------------------------------------------------------
-          04 — FAST-TRACK REVIEW
+          04: FAST-TRACK REVIEW
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="04" title="Fast-Track Review" />
@@ -322,7 +323,7 @@ export default function MOCAIContentPolicy() {
                   rel="noopener noreferrer"
                   className="font-bold underline decoration-1 underline-offset-2 hover:no-underline"
                 >
-                  Submit here →
+                  Submit here <Arrow dir="right" className="ml-[0.2em]" />
                 </a>
               </>
             }
@@ -341,7 +342,7 @@ export default function MOCAIContentPolicy() {
       </section>
 
       {/* ---------------------------------------------------------
-          05 — PRE-PUBLISH CHECKLIST
+          05: PRE-PUBLISH CHECKLIST
       --------------------------------------------------------- */}
       <section>
         <SectionLabel index="05" title="Pre-Publish Checklist" />

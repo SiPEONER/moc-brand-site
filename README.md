@@ -10,40 +10,18 @@ The site is set to **not be indexed by search engines** (`robots: noindex` in `a
 since this is meant to be reached only by a direct link, not discovered publicly. Remove that if
 you later want it indexed.
 
-## Deploy to Vercel
+## Deploy
 
-You said you're already logged into Vercel with GitHub, so the fastest path is the CLI: it
-doesn't even require pushing to GitHub first, though it will offer to connect one.
-
-### Option A: Vercel CLI (fastest, from this folder)
+One process for every MOC site: push to `main` on GitHub (`SiPEONER/moc-brand-site`) and Vercel
+deploys it automatically (project `moc-brand-site`, team `bnd-fish`). No CLI or upload deploys.
 
 ```bash
-npm install
-npx vercel
-```
-
-Follow the prompts (link to your Vercel account, accept the defaults; it auto-detects Next.js).
-That gives you a live `*.vercel.app` URL immediately. Run `npx vercel --prod` to promote it to
-the project's production URL once you're happy with it.
-
-### Option B: GitHub + Vercel auto-deploy (what you'll want long-term)
-
-```bash
-git init
 git add .
-git commit -m "Initial commit: MOC brand guidelines site"
+git commit -m "Describe the change"
+git push origin main
 ```
 
-Then on GitHub: create a new **empty** repo (no README/gitignore), and push:
-
-```bash
-git remote add origin https://github.com/<your-org>/<repo-name>.git
-git branch -M main
-git push -u origin main
-```
-
-Then in the Vercel dashboard: **Add New Project → Import** the repo you just pushed → it will
-auto-detect Next.js → **Deploy**. Every future push to `main` redeploys automatically.
+Commit as `SiPEONER <SiPEONER@users.noreply.github.com>` so Vercel matches the author to the team.
 
 ### Custom domain / subdomain
 
@@ -62,7 +40,7 @@ Opens at `http://localhost:3000`.
 ## Updating the guide
 
 To ship a new revision of the guide itself, replace `components/MOCBrandGuidelines.jsx` with the
-latest version from the project, commit, and push (or re-run `vercel`); the rest of the site
+latest version from the project, commit, and push; the rest of the site
 doesn't need to change.
 
 ## Fonts

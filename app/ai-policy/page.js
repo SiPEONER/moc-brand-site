@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MOCAIContentPolicy from "@/components/MOCAIContentPolicy";
+import Arrow from "@/components/Arrow";
 
 export default function AIPolicy() {
   return (
@@ -8,9 +9,9 @@ export default function AIPolicy() {
       <div className="fixed bottom-4 right-4 z-50">
         <Link
           href="/"
-          className="inline-block bg-black text-white no-underline font-bold text-[11px] tracking-widest uppercase px-4 py-3 border-2 border-black hover:bg-white hover:text-black transition-colors"
+          className="inline-flex items-center gap-[0.6em] bg-black text-white no-underline font-bold text-[11px] tracking-widest uppercase px-4 py-3 border-2 border-black hover:bg-white hover:text-black transition-colors"
         >
-          ← Back to Guide
+          <Arrow dir="left" /> Back to Guide
         </Link>
       </div>
     </>

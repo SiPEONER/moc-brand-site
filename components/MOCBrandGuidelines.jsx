@@ -1,21 +1,21 @@
 import React from "react";
 
 /* ==================================================================
-   MOC PRODUCTS — BRAND IDENTITY & LOGO USAGE GUIDE
+   MOC PRODUCTS: BRAND IDENTITY & LOGO USAGE GUIDE
    Single-file, production-ready React + Tailwind component.
 
    DESIGN LANGUAGE
    A merge of references, kept inside a hard binary palette. Chosen
    specifically for their black/white, grid-driven, schematic style:
-   - NASA 1975 Graphics Standards Manual — doc-number kickers,
+   - NASA 1975 Graphics Standards Manual: doc-number kickers,
      numbered sections, blueprint precision.
-   - Otl Aicher's Lufthansa &amp; Munich 1972 Olympics manuals — rigid
+   - Otl Aicher's Lufthansa &amp; Munich 1972 Olympics manuals: rigid
      modular grid, restrained rule-based system thinking.
    - Massimo Vignelli / Bob Noorda's NYC Subway Graphics Standards
-     Manual — plain-spoken rule statements, Helvetica-driven hierarchy.
-   - Uber's brand-guideline system — generous whitespace, a top-level
+     Manual: plain-spoken rule statements, Helvetica-driven hierarchy.
+   - Uber's brand-guideline system: generous whitespace, a top-level
      section index, paired "Correct / Incorrect" comparisons.
-   - Off-White's industrial/blueprint visual language — diagonal
+   - Off-White's industrial/blueprint visual language: diagonal
      caution striping used here (in black/white only) to flag
      restricted-use assets.
    (assets.uber.com/document/468 blocks automated fetch via
@@ -23,24 +23,24 @@ import React from "react";
    conventions rather than that exact page.)
 
    Logo geometry is extracted verbatim from the client-supplied
-   vector artwork (MOC_BRAND_SVG.zip — no_background / with_background,
+   vector artwork (MOC_BRAND_SVG.zip, no_background / with_background,
    black / white ink). Path data is reproduced byte-for-byte; only the
    fill (currentColor) is parameterized so ink color is driven by the
    wrapping container instead of duplicating artwork per color.
 
    POLICY NOTES (per Creative Director direction):
-   - The wordmark is NOT an approved standalone asset — never shown
+   - The wordmark is NOT an approved standalone asset, never shown
      isolated in this guide.
    - The curve device MAY be used in isolation, but only for icon /
      favicon / background-texture applications, and only with prior
-     approval — flagged with a caution-striped panel.
+     approval, flagged with a caution-striped panel.
    - The "box" lockup (square canvas, full-bleed wave background +
      wordmark) is a PRIMARY asset, presented at the same tier as the
-     linear mark — not a secondary/"extended" variant. Its clearspace
+     linear mark, not a secondary/"extended" variant. Its clearspace
      is measured from the edge of the box itself, not the letterforms.
    - Minimum size values below are recommended starting points, not
-     the result of print proofing — confirm before production use.
-   - The mark may only sit on a solid black or solid white field —
+     the result of print proofing; confirm before production use.
+   - The mark may only sit on a solid black or solid white field,
      never a brand/third-party color, gradient, photo, or texture.
      Shown in Section 05 with a checkerboard stand-in (binary-safe)
      rather than an actual photo, plus text rules for the color case,
@@ -53,7 +53,7 @@ import React from "react";
      identity rules only (the mark itself, the palette, and type may
      never be AI-generated or altered). It cross-references the
      separate MOC AI Content Policy (MOC-AIP-001), which owns the
-     full review process / governance content — kept out of this
+     full review process / governance content, kept out of this
      guide so the guide stays a visual-identity reference.
    - Final visual QA pass: IncorrectPanel's strike-through was
      spanning the full panel and cutting through the caption text on
@@ -69,7 +69,7 @@ import React from "react";
      machine that lacks the font installed, and a new "External //
      Non-Licensed Use" rule names Montserrat (free, Google Fonts) as
      the sole approved substitute for partners/vendors without a
-     license — never a free-form typeface choice.
+     license, never a free-form typeface choice.
 
    SYSTEM CONSTRAINTS (do not violate when editing):
    - Binary color only: #000000 / #FFFFFF. No grays, gradients,
@@ -77,7 +77,9 @@ import React from "react";
    - Font stack: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif.
    - Hierarchy: font-black (900) headers / font-bold labels /
      font-normal micro-copy. tracking-tighter on major headers.
-   - Structure runs on solid black borders — 2px for major section
+   - Montserrat (external use, Section 03): headlines -0.01em, caps
+     labels 0.10em, body 0. Set 2026-10-24.
+   - Structure runs on solid black borders: 2px for major section
      divisions, 1px hairlines for internal grid lines.
    ================================================================== */
 
@@ -162,7 +164,7 @@ function XGlyph({ className = "" }) {
 }
 
 // A stand-in for "photography / texture / pattern" built from solid black
-// and white squares only — no photo, no gradient, no gray. Used to show why
+// and white squares only: no photo, no gradient, no gray. Used to show why
 // the mark can't sit on a busy background without breaking the binary rule
 // to depict one.
 function CheckerPattern({ className = "" }) {
@@ -201,9 +203,9 @@ function SectionLabel({ index, title }) {
 function SubLabel({ text, noDivider = false }) {
   // The bottom hairline is white so this bar reads as a distinct label rather than
   // fusing into a black panel below it. Skip it (noDivider) when what follows already
-  // draws its own top border — e.g. CautionStripe — so the two don't double up.
+  // draws its own top border (e.g. CautionStripe), so the two don't double up.
   // border-b-2 to match the weight of the divider on the panel row directly below
-  // (LogoPanel's own border-b-2) — a bare 1px line here read visibly thinner than
+  // (LogoPanel's own border-b-2); a bare 1px line here read visibly thinner than
   // that 2px seam right underneath it, on the 1A-1D row.
   return (
     <div className={`${noDivider ? "" : "border-b-2 border-white"} px-6 md:px-12 py-3 bg-black`}>
@@ -223,7 +225,7 @@ function IndexItem({ index, label }) {
   );
 }
 
-// Solid black bars, skewed — a caution/restricted-use marker built
+// Solid black bars, skewed: a caution/restricted-use marker built
 // from discrete shapes (no gradients) to stay inside the binary rule.
 function CautionStripe() {
   const bars = Array.from({ length: 28 });
@@ -248,7 +250,7 @@ function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) 
   // fixed color, since the two columns need opposite treatment.
   //
   // The parent grid mixes two divide-* utilities, and each one wins a fight
-  // against a different plain property here — both via the same compound
+  // against a different plain property here, both via the same compound
   // selector (> :not([hidden]) ~ :not([hidden])), which out-specifies a
   // single plain utility class:
   //   - divide-black sets border-COLOR on 1B (the second child in its row)
@@ -265,7 +267,7 @@ function LogoPanel({ id, label, note, bg, fg, part = "full", divider = false }) 
   // Using the BOTTOM-SPECIFIC utilities (border-b-*), not the general
   // border-white/border-black/border-2 shorthand: the general ones set all
   // four sides, which was quietly also touching divide-x's LEFT border on
-  // this same panel (1B's vertical divider against 1A) — harmless there by
+  // this same panel (1B's vertical divider against 1A), harmless there by
   // coincidence, but imprecise, and worth eliminating as a variable.
   const dividerClass = divider
     ? bg === "bg-black"
@@ -423,7 +425,7 @@ export default function MOCBrandGuidelines() {
           <h1 className="font-black text-6xl md:text-9xl tracking-tighter leading-none">
             MOC Products
           </h1>
-          {/* Subtitle as a solid stamp — left edge flush with the "M" above,
+          {/* Subtitle as a solid stamp: left edge flush with the "M" above,
               since both sit at the same container inset with no extra offset. */}
           <div className="inline-block bg-black px-4 py-2 md:px-6 md:py-3 mt-2 md:mt-3">
             <p className="font-bold text-white text-base md:text-2xl tracking-tight uppercase">
@@ -445,14 +447,14 @@ export default function MOCBrandGuidelines() {
       </header>
 
       {/* ---------------------------------------------------------
-          01 — LOGO SYSTEM
+          01: LOGO SYSTEM
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="01" title="Logo System" />
 
         <SubLabel text="PRIMARY MARKS // LINEAR &amp; BOX LOCKUP" />
         {/* All four panels share ONE grid (not two stacked grids) so 1A/1B and 1C/1D
-            resolve identical column tracks — two separate grids can round their
+            resolve identical column tracks; two separate grids can round their
             "1fr 1fr" columns by a pixel differently, which is what caused the
             vertical divider to jog out of alignment at the row boundary. */}
         <div className="grid grid-cols-1 md:grid-cols-2 divide-x-0 md:divide-x divide-y md:divide-y-0 divide-black border-b-2 border-white">
@@ -471,7 +473,7 @@ export default function MOCBrandGuidelines() {
       </section>
 
       {/* ---------------------------------------------------------
-          02 — CLEARSPACE &amp; MINIMUM SIZE
+          02: CLEARSPACE &amp; MINIMUM SIZE
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="02" title="Clearspace &amp; Minimum Size" />
@@ -526,7 +528,7 @@ export default function MOCBrandGuidelines() {
       </section>
 
       {/* ---------------------------------------------------------
-          03 — TYPOGRAPHY SYSTEM
+          03: TYPOGRAPHY SYSTEM
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="03" title="Typography System" />
@@ -557,10 +559,20 @@ export default function MOCBrandGuidelines() {
             fallbacks, or Montserrat for external use) is approved without design team sign-off.
           </p>
         </div>
+
+        <SubLabel text="MONTSERRAT // LETTER SPACING" />
+        <div className="px-6 md:px-12 py-8 md:py-10">
+          <p className="font-normal text-sm tracking-wide max-w-2xl">
+            Montserrat is wider than Proxima Nova, and at this guide&apos;s Proxima Nova header
+            tracking (-0.05em) its Black weight letters touch. When setting type in Montserrat, track
+            headlines at -0.01em and caps labels at 0.10em // body copy stays at 0. Proxima Nova
+            settings in this guide are unchanged.
+          </p>
+        </div>
       </section>
 
       {/* ---------------------------------------------------------
-          04 — COLOR SYSTEM
+          04: COLOR SYSTEM
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="04" title="Color System" />
@@ -583,7 +595,7 @@ export default function MOCBrandGuidelines() {
       </section>
 
       {/* ---------------------------------------------------------
-          05 — CORRECT & INCORRECT USAGE
+          05: CORRECT & INCORRECT USAGE
       --------------------------------------------------------- */}
       <section className="border-b-2 border-black">
         <SectionLabel index="05" title="Usage" />
@@ -659,7 +671,7 @@ export default function MOCBrandGuidelines() {
       </section>
 
       {/* ---------------------------------------------------------
-          06 — AI-GENERATED CONTENT
+          06: AI-GENERATED CONTENT
       --------------------------------------------------------- */}
       <section>
         <SectionLabel index="06" title="AI-Generated Content" />

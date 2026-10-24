@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "@/components/Arrow";
 
 const FONT_STACK = "'Proxima Nova', 'Helvetica Neue', Arial, sans-serif";
 
@@ -31,19 +32,23 @@ const LOGO_ASSETS = [
 
 const FORMATS = [
   { ext: "svg", label: "SVG", note: "Vector" },
-  { ext: "png", label: "PNG", note: "Transparent · 2048px" },
+  { ext: "png", label: "PNG", note: "Transparent // 2048px" },
   { ext: "pdf", label: "PDF", note: "Vector" },
 ];
 
-function DownloadCell({ base, ext, label }) {
+function DownloadCell({ base, ext, label, note }) {
+  // The whole cell is the download: format and arrow centered, the note under it.
   return (
     <a
       href={`/assets/logo/${base}.${ext}`}
       download
-      className="border-b border-black px-4 py-3 flex items-center justify-center gap-1.5 font-bold text-xs tracking-widest uppercase text-black no-underline hover:bg-black hover:text-white transition-colors"
+      className="h-full px-2 py-5 flex flex-col items-center justify-center gap-2 text-black no-underline hover:bg-black hover:text-white transition-colors"
     >
-      {label}
-      <span aria-hidden="true" className="text-[13px] leading-none">↓</span>
+      <span className="flex items-center gap-[0.6em] font-bold text-xs tracking-widest uppercase">
+        {label}
+        <Arrow dir="down" />
+      </span>
+      <span className="font-normal text-[9px] tracking-widest uppercase text-center whitespace-nowrap">{note}</span>
     </a>
   );
 }
@@ -65,9 +70,9 @@ export default function Downloads() {
         </div>
         <Link
           href="/"
-          className="font-bold text-[11px] tracking-widest uppercase border-2 border-black px-4 py-3 text-black no-underline hover:bg-black hover:text-white transition-colors shrink-0"
+          className="inline-flex items-center gap-[0.6em] self-start md:self-auto font-bold text-[11px] tracking-widest uppercase border-2 border-black px-4 py-3 text-black no-underline hover:bg-black hover:text-white transition-colors shrink-0"
         >
-          ← Back to Guide
+          <Arrow dir="left" /> Back to Guide
         </Link>
       </header>
 
@@ -88,39 +93,32 @@ export default function Downloads() {
           </p>
         </div>
 
-        <p className="md:hidden px-6 py-2.5 border-b border-black bg-black text-white font-bold text-[11px] tracking-widest uppercase">
-          Scroll right for PNG // PDF →
+        <p className="md:hidden flex items-center gap-[0.6em] px-6 py-2.5 border-b border-black bg-black text-white font-bold text-[11px] tracking-widest uppercase">
+          Scroll right for PNG // PDF <Arrow dir="right" />
         </p>
         <div className="relative">
           <div className="overflow-x-auto">
-            <div className="min-w-[640px]">
+            <div className="min-w-[680px]">
               {LOGO_ASSETS.map((asset) => (
-                <div key={asset.id} className="border-b border-black last:border-b-0 grid grid-cols-[1fr_repeat(3,140px)]">
+                <div key={asset.id} className="border-b border-black last:border-b-0 grid grid-cols-[1fr_repeat(3,152px)]">
                   <div className="px-6 md:px-12 py-6 border-r border-black flex flex-col justify-center">
                     <p className="font-bold text-[10px] tracking-widest">{asset.id}</p>
                     <p className="font-black text-base md:text-lg tracking-tight uppercase mt-1">
                       {asset.label}
                     </p>
-                    <p className="font-normal text-[11px] tracking-wide mt-2 max-w-md text-black/70">
+                    <p className="font-normal text-[11px] tracking-wide mt-2 max-w-md">
                       {asset.note}
                     </p>
                   </div>
                   {FORMATS.map((fmt) => (
-                    <div key={fmt.ext} className="border-r border-black last:border-r-0 flex flex-col">
-                      <DownloadCell base={asset.base} ext={fmt.ext} label={fmt.label} />
-                      <p className="text-center font-normal text-[9px] tracking-widest uppercase py-2 text-black/60">
-                        {fmt.note}
-                      </p>
+                    <div key={fmt.ext} className="border-r border-black last:border-r-0">
+                      <DownloadCell base={asset.base} ext={fmt.ext} label={fmt.label} note={fmt.note} />
                     </div>
                   ))}
                 </div>
               ))}
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            className="md:hidden pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-white to-transparent"
-          />
         </div>
       </section>
 
@@ -155,9 +153,9 @@ export default function Downloads() {
               href="https://fonts.google.com/specimen/Montserrat"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block font-bold text-[11px] tracking-widest uppercase border-2 border-black px-4 py-3 text-black no-underline hover:bg-black hover:text-white transition-colors"
+              className="inline-flex items-center gap-[0.6em] font-bold text-[11px] tracking-widest uppercase border-2 border-black px-4 py-3 text-black no-underline hover:bg-black hover:text-white transition-colors"
             >
-              Get Montserrat on Google Fonts →
+              Get Montserrat on Google Fonts <Arrow dir="right" />
             </a>
           </div>
         </div>
