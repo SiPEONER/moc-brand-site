@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "moc-brand-site\\.vercel\\.app" }],
+      "destination": "https://brand.mocproducts.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "moc-brand-site-bnd-fish\\.vercel\\.app" }],
+      "destination": "https://brand.mocproducts.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "moc-brand-site-git-main-bnd-fish\\.vercel\\.app" }],
+      "destination": "https://brand.mocproducts.app/:path*",
+      "permanent": true
+    }
+  ]
+}
